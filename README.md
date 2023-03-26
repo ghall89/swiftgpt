@@ -2,6 +2,8 @@
 
 ## About
 
+![](./screenshot.png)
+
 ### Story
 
 As an exercise in native macOS development, build an app using the OpenAI API in Swift and SwiftUI. This app should:
