@@ -13,6 +13,8 @@
 		D37AC76029CF884A00A6B585 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37AC75F29CF884A00A6B585 /* Preview Assets.xcassets */; };
 		D37AC76829CF886B00A6B585 /* OpenAIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC76729CF886B00A6B585 /* OpenAIHandler.swift */; };
 		D37AC76C29CFA99E00A6B585 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC76B29CFA99E00A6B585 /* Models.swift */; };
+		D38C23E629D078E800681461 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38C23E529D078E300681461 /* DialogView.swift */; };
+		D38C23EB29D07C5D00681461 /* PreferenceHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38C23EA29D07C5D00681461 /* PreferenceHandlers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		D37AC76929CF8D4300A6B585 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D37AC76A29CF902700A6B585 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		D37AC76B29CFA99E00A6B585 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		D38C23E529D078E300681461 /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
+		D38C23EA29D07C5D00681461 /* PreferenceHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceHandlers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +64,8 @@
 		D37AC75729CF884900A6B585 /* SwiftGPT */ = {
 			isa = PBXGroup;
 			children = (
-				D37AC76729CF886B00A6B585 /* OpenAIHandler.swift */,
-				D37AC76B29CFA99E00A6B585 /* Models.swift */,
+				D38C23EC29D07CB200681461 /* Chat */,
+				D38C23E929D07C0400681461 /* UserPrefs */,
 				D37AC75829CF884900A6B585 /* SwiftGPTApp.swift */,
 				D37AC75A29CF884900A6B585 /* ContentView.swift */,
 				D37AC75C29CF884A00A6B585 /* Assets.xcassets */,
@@ -77,6 +81,24 @@
 				D37AC75F29CF884A00A6B585 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D38C23E929D07C0400681461 /* UserPrefs */ = {
+			isa = PBXGroup;
+			children = (
+				D38C23E529D078E300681461 /* DialogView.swift */,
+				D38C23EA29D07C5D00681461 /* PreferenceHandlers.swift */,
+			);
+			path = UserPrefs;
+			sourceTree = "<group>";
+		};
+		D38C23EC29D07CB200681461 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				D37AC76729CF886B00A6B585 /* OpenAIHandler.swift */,
+				D37AC76B29CFA99E00A6B585 /* Models.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,7 +172,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D37AC75B29CF884900A6B585 /* ContentView.swift in Sources */,
+				D38C23EB29D07C5D00681461 /* PreferenceHandlers.swift in Sources */,
 				D37AC76829CF886B00A6B585 /* OpenAIHandler.swift in Sources */,
+				D38C23E629D078E800681461 /* DialogView.swift in Sources */,
 				D37AC75929CF884900A6B585 /* SwiftGPTApp.swift in Sources */,
 				D37AC76C29CFA99E00A6B585 /* Models.swift in Sources */,
 			);
@@ -291,7 +315,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ghalldev.SwiftGPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -318,7 +342,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ghalldev.SwiftGPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

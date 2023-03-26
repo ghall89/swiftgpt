@@ -7,17 +7,6 @@
 
 import SwiftUI
 
-func retrieveKey() -> String {
-	let storedKey: String? = UserDefaults.standard.string(forKey: "api_key")
-	
-	if storedKey != nil {
-		return storedKey!
-	} else {
-		return ""
-	}
-	
-}
-
 struct ContentView: View {
 	@State var showDialog: Bool = false
 	@State var apiKey: String = retrieveKey()
@@ -46,28 +35,20 @@ struct ContentView: View {
 	var body: some View {
 		VStack {
 			List(chatArray) { item in
-				Text(item.message)
+				Text(item.message).textSelection(.enabled)
 			}
-			Divider()
 			HStack {
 				Button(action: {
-		
 					showDialog = true
 				}) {
-					Image(systemName: "gear")
+					Image(systemName: "key.fill")
 				}.sheet(isPresented: $showDialog) {
-					VStack{
-						TextField("API Key", text: $apiKey)
-						Button("Ok") {
-							UserDefaults.standard.set(apiKey, forKey: "api_key")
-							showDialog = false
-						}
-					}.frame(width: 300).padding()
+					DialogView(showDialog: $showDialog, apiKey: $apiKey)
 				}
 				TextField("Prompt", text: $prompt)
 				Button("Send") {
 					handleButton()
-				}
+				}.keyboardShortcut(.defaultAction)
 			}.frame(height: 20).padding()
 		}
 	}
