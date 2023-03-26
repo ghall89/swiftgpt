@@ -11,7 +11,8 @@
 		D37AC75B29CF884900A6B585 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC75A29CF884900A6B585 /* ContentView.swift */; };
 		D37AC75D29CF884A00A6B585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37AC75C29CF884A00A6B585 /* Assets.xcassets */; };
 		D37AC76029CF884A00A6B585 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37AC75F29CF884A00A6B585 /* Preview Assets.xcassets */; };
-		D37AC76829CF886B00A6B585 /* generateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC76729CF886B00A6B585 /* generateResponse.swift */; };
+		D37AC76829CF886B00A6B585 /* OpenAIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC76729CF886B00A6B585 /* OpenAIHandler.swift */; };
+		D37AC76C29CFA99E00A6B585 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC76B29CFA99E00A6B585 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,9 +22,10 @@
 		D37AC75C29CF884A00A6B585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D37AC75F29CF884A00A6B585 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D37AC76129CF884A00A6B585 /* SwiftGPT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftGPT.entitlements; sourceTree = "<group>"; };
-		D37AC76729CF886B00A6B585 /* generateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateResponse.swift; sourceTree = "<group>"; };
+		D37AC76729CF886B00A6B585 /* OpenAIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIHandler.swift; sourceTree = "<group>"; };
 		D37AC76929CF8D4300A6B585 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D37AC76A29CF902700A6B585 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		D37AC76B29CFA99E00A6B585 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 		D37AC75729CF884900A6B585 /* SwiftGPT */ = {
 			isa = PBXGroup;
 			children = (
-				D37AC76729CF886B00A6B585 /* generateResponse.swift */,
+				D37AC76729CF886B00A6B585 /* OpenAIHandler.swift */,
+				D37AC76B29CFA99E00A6B585 /* Models.swift */,
 				D37AC75829CF884900A6B585 /* SwiftGPTApp.swift */,
 				D37AC75A29CF884900A6B585 /* ContentView.swift */,
 				D37AC75C29CF884A00A6B585 /* Assets.xcassets */,
@@ -147,8 +150,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D37AC75B29CF884900A6B585 /* ContentView.swift in Sources */,
-				D37AC76829CF886B00A6B585 /* generateResponse.swift in Sources */,
+				D37AC76829CF886B00A6B585 /* OpenAIHandler.swift in Sources */,
 				D37AC75929CF884900A6B585 /* SwiftGPTApp.swift in Sources */,
+				D37AC76C29CFA99E00A6B585 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

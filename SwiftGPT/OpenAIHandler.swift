@@ -1,5 +1,5 @@
 //
-//  generateResponse.swift
+//  OpenAIHandler.swift
 //  SwiftGPT
 //
 //  Created by Graham Hall on 3/25/23.
@@ -7,19 +7,22 @@
 
 import Foundation
 
-func generateText(prompt: String, key: String, engine: String, completion: @escaping (Result<String, Error>) -> Void) {
+func generateText(prompt: String, key: String, chat: Array<Message>, completion: @escaping (Result<String, Error>) -> Void) {
 	
-	let apiUrl = URL(string: "https://api.openai.com/v1/engines/\(engine)/completions")!
+	let apiUrl = URL(string: "https://api.openai.com/v1/engines/text-curie-001/completions")!
 	var request = URLRequest(url: apiUrl)
+
 	request.httpMethod = "POST"
 	request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 	request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
+
 	let parameters: [String: Any] = [
 		"prompt": prompt,
-		"max_tokens": 50,
-		"temperature": 0.7,
-		"n": 1,
-		"stop": "\n"
+		"temperature": 0.5,
+		"max_tokens": 64,
+		"top_p": 1.0,
+		"frequency_penalty": 0.0,
+		"presence_penalty": 0.0
 	]
 	do {
 		request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])

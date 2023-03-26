@@ -6,12 +6,6 @@
 //
 
 import SwiftUI
-import Foundation
-
-struct Message: Identifiable {
-	let id = UUID()
-	let message: String
-}
 
 struct ContentView: View {
 	@State var showDialog = false
@@ -20,21 +14,20 @@ struct ContentView: View {
 	@State var chatArray = [Message]()
 	
 	func handleButton () {
-		chatArray.append(Message(message: prompt))
+		chatArray.append(Message(message: prompt, role: "User"))
 		if apiKey != "" {
-			generateText(prompt: prompt, key: apiKey, engine: "curie") { result in
-
-				print(apiKey)
+			generateText(prompt: prompt, key: apiKey, chat: chatArray) { result in
 				switch result {
 					case .success(let text):
 						print(text)
-						chatArray.append(Message(message: text))
+						chatArray.append(Message(message: text, role: "assistant"))
 					case .failure(let error):
 						print(error.localizedDescription)
+						chatArray.append(Message(message: error.localizedDescription, role: "system"))
 				}
 			}
 		} else {
-			chatArray.append(Message(message: "Please provide API key"))
+			showDialog = true
 		}
 		
 	}
