@@ -7,11 +7,22 @@
 
 import SwiftUI
 
+func retrieveKey() -> String {
+	let storedKey: String? = UserDefaults.standard.string(forKey: "api_key")
+	
+	if storedKey != nil {
+		return storedKey!
+	} else {
+		return ""
+	}
+	
+}
+
 struct ContentView: View {
-	@State var showDialog = false
-	@State var apiKey = ""
-	@State var prompt = ""
-	@State var chatArray = [Message]()
+	@State var showDialog: Bool = false
+	@State var apiKey: String = retrieveKey()
+	@State var prompt: String = ""
+	@State var chatArray: Array = [Message]()
 	
 	func handleButton () {
 		chatArray.append(Message(message: prompt, role: "User"))
@@ -40,6 +51,7 @@ struct ContentView: View {
 			Divider()
 			HStack {
 				Button(action: {
+		
 					showDialog = true
 				}) {
 					Image(systemName: "gear")
@@ -47,6 +59,7 @@ struct ContentView: View {
 					VStack{
 						TextField("API Key", text: $apiKey)
 						Button("Ok") {
+							UserDefaults.standard.set(apiKey, forKey: "api_key")
 							showDialog = false
 						}
 					}.frame(width: 300).padding()
