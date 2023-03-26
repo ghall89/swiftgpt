@@ -14,9 +14,11 @@ struct DialogView: View {
     var body: some View {
 			VStack{
 				TextField("API Key", text: $apiKey)
-				Button("Ok") {
+				Button(action: {
 					UserDefaults.standard.set(apiKey, forKey: "api_key")
 					showDialog = false
+				}) {
+					Text("Ok").padding(.horizontal, 20)
 				}
 			}.frame(width: 300).padding()
     }
