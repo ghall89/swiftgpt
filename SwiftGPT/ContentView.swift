@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+func chatColor(role: String) -> Color {
+	switch role {
+		case "user":
+			return Color.gray
+		case "assistant":
+			return Color.blue
+		default:
+			return Color.gray
+	}
+	
+}
+
 struct ContentView: View {
 	@State var showDialog: Bool = false
 	@State var apiKey: String = retrieveKey()
@@ -19,8 +31,8 @@ struct ContentView: View {
 			generateText(prompt: prompt, key: apiKey, chat: chatArray) { result in
 				switch result {
 					case .success(let text):
-						print(text)
-						chatArray.append(Message(message: text, role: "assistant"))
+						let response = text.trimmingCharacters(in: .whitespacesAndNewlines)
+						chatArray.append(Message(message: response, role: "assistant"))
 					case .failure(let error):
 						print(error.localizedDescription)
 						chatArray.append(Message(message: error.localizedDescription, role: "system"))
@@ -35,9 +47,19 @@ struct ContentView: View {
 	var body: some View {
 		VStack {
 			List(chatArray) { item in
-				Text(item.message).textSelection(.enabled)
+				ZStack(alignment: .leading) {
+					RoundedRectangle(cornerRadius: 5).foregroundColor(chatColor(role: item.role)).shadow(radius: 10)
+					Text(item.message).textSelection(.enabled).padding(8).foregroundColor(.white)
+				}
 			}
 			HStack {
+				TextField("Prompt", text: $prompt)
+				Button("Send") {
+					handleButton()
+				}.keyboardShortcut(.defaultAction)
+			}.padding()
+		}.toolbar {
+			ToolbarItemGroup(placement: .primaryAction) {
 				Button(action: {
 					showDialog = true
 				}) {
@@ -45,11 +67,7 @@ struct ContentView: View {
 				}.sheet(isPresented: $showDialog) {
 					DialogView(showDialog: $showDialog, apiKey: $apiKey)
 				}
-				TextField("Prompt", text: $prompt)
-				Button("Send") {
-					handleButton()
-				}.keyboardShortcut(.defaultAction)
-			}.frame(height: 20).padding()
+			}
 		}
 	}
 }
