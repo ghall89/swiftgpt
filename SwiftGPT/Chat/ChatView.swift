@@ -18,11 +18,12 @@ struct ChatView: View {
 						ZStack(alignment: .leading) {
 							RoundedRectangle(cornerRadius: 5).foregroundColor(chatColor(role: item.role)).shadow(radius: 10)
 							Text(item.message).textSelection(.enabled).padding(8).foregroundColor(.white)
-						}.padding([.horizontal, .top])
+						}.padding([.horizontal, .top]).id(item.id)
 					}
+					Rectangle().frame(height: 60).foregroundColor(.clear)
 				}
 				.onChange(of: chatArray.count) { count in
-					scrollViewProxy.scrollTo(chatArray.last, anchor: .bottom)
+					scrollViewProxy.scrollTo(chatArray[chatArray.count - 1].id , anchor: .bottom)
 				}
 			}
 		}

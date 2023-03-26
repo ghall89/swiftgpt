@@ -45,7 +45,7 @@ struct ContentView: View {
 	}
 	
 	var body: some View {
-		VStack {
+		ZStack(alignment: .bottom) {
 			ChatView(chatArray: $chatArray)
 			VStack {
 				Divider()

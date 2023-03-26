@@ -19,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D34BC7ED29D0E50D00966ED0 /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		D37AC75529CF884900A6B585 /* SwiftGPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D37AC75829CF884900A6B585 /* SwiftGPTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGPTApp.swift; sourceTree = "<group>"; };
 		D37AC75A29CF884900A6B585 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +49,7 @@
 		D37AC74C29CF884900A6B585 = {
 			isa = PBXGroup;
 			children = (
+				D34BC7ED29D0E50D00966ED0 /* screenshot.png */,
 				D37AC76A29CF902700A6B585 /* LICENSE.md */,
 				D37AC76929CF8D4300A6B585 /* README.md */,
 				D37AC75729CF884900A6B585 /* SwiftGPT */,
