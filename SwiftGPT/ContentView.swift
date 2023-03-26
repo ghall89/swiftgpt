@@ -14,7 +14,7 @@ func chatColor(role: String) -> Color {
 		case "assistant":
 			return Color.blue
 		default:
-			return Color.gray
+			return Color.red
 	}
 	
 }
@@ -26,13 +26,14 @@ struct ContentView: View {
 	@State var chatArray: Array = [Message]()
 	
 	func handleButton () {
-		chatArray.append(Message(message: prompt, role: "User"))
 		if apiKey != "" {
+			chatArray.append(Message(message: prompt, role: "user"))
 			generateText(prompt: prompt, key: apiKey, chat: chatArray) { result in
 				switch result {
 					case .success(let text):
 						let response = text.trimmingCharacters(in: .whitespacesAndNewlines)
 						chatArray.append(Message(message: response, role: "assistant"))
+						prompt = ""
 					case .failure(let error):
 						print(error.localizedDescription)
 						chatArray.append(Message(message: error.localizedDescription, role: "system"))
@@ -41,23 +42,17 @@ struct ContentView: View {
 		} else {
 			showDialog = true
 		}
-		
 	}
 	
 	var body: some View {
-		VStack {
-			List(chatArray) { item in
-				ZStack(alignment: .leading) {
-					RoundedRectangle(cornerRadius: 5).foregroundColor(chatColor(role: item.role)).shadow(radius: 10)
-					Text(item.message).textSelection(.enabled).padding(8).foregroundColor(.white)
-				}
-			}
+		ZStack(alignment: .bottom) {
+			ChatView(chatArray: $chatArray)
 			HStack {
-				TextField("Prompt", text: $prompt)
+				TextField("Prompt", text: $prompt,  axis: .vertical).lineLimit(1...5)
 				Button("Send") {
 					handleButton()
-				}.keyboardShortcut(.defaultAction)
-			}.padding()
+				}.keyboardShortcut(.defaultAction).buttonStyle(.bordered)
+			}.padding().background(.thickMaterial, in: Rectangle())
 		}.toolbar {
 			ToolbarItemGroup(placement: .primaryAction) {
 				Button(action: {

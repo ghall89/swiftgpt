@@ -15,6 +15,7 @@
 		D37AC76C29CFA99E00A6B585 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC76B29CFA99E00A6B585 /* Models.swift */; };
 		D38C23E629D078E800681461 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38C23E529D078E300681461 /* DialogView.swift */; };
 		D38C23EB29D07C5D00681461 /* PreferenceHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38C23EA29D07C5D00681461 /* PreferenceHandlers.swift */; };
+		D393605929D0A282002887BA /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D393605829D0A282002887BA /* ChatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D37AC76B29CFA99E00A6B585 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		D38C23E529D078E300681461 /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
 		D38C23EA29D07C5D00681461 /* PreferenceHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceHandlers.swift; sourceTree = "<group>"; };
+		D393605829D0A282002887BA /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				D37AC76729CF886B00A6B585 /* OpenAIHandler.swift */,
 				D37AC76B29CFA99E00A6B585 /* Models.swift */,
+				D393605829D0A282002887BA /* ChatView.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				D38C23EB29D07C5D00681461 /* PreferenceHandlers.swift in Sources */,
 				D37AC76829CF886B00A6B585 /* OpenAIHandler.swift in Sources */,
 				D38C23E629D078E800681461 /* DialogView.swift in Sources */,
+				D393605929D0A282002887BA /* ChatView.swift in Sources */,
 				D37AC75929CF884900A6B585 /* SwiftGPTApp.swift in Sources */,
 				D37AC76C29CFA99E00A6B585 /* Models.swift in Sources */,
 			);
@@ -315,7 +319,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ghalldev.SwiftGPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -342,7 +346,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ghalldev.SwiftGPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
