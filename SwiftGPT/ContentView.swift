@@ -45,14 +45,19 @@ struct ContentView: View {
 	}
 	
 	var body: some View {
-		ZStack(alignment: .bottom) {
+		VStack {
 			ChatView(chatArray: $chatArray)
-			HStack {
-				TextField("Prompt", text: $prompt,  axis: .vertical).lineLimit(1...5)
-				Button("Send") {
-					handleButton()
-				}.keyboardShortcut(.defaultAction).buttonStyle(.bordered)
-			}.padding().background(.thickMaterial, in: Rectangle())
+			VStack {
+				Divider()
+				HStack {
+					TextField("Prompt", text: $prompt).textFieldStyle(.plain).lineLimit(1...5)
+					Button(action: {
+						handleButton()
+					}) {
+						Image(systemName: "paperplane.fill")
+					} .keyboardShortcut(.defaultAction).buttonStyle(PlainButtonStyle()).foregroundColor(.blue).disabled(prompt.isEmpty).padding(.horizontal, 5)
+				}.padding().offset(y: -5)
+			}.background(.thickMaterial, in: Rectangle())
 		}.toolbar {
 			ToolbarItemGroup(placement: .primaryAction) {
 				Button(action: {

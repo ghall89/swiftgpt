@@ -11,13 +11,21 @@ struct ChatView: View {
 	@Binding var chatArray: Array<Message>
 	
 	var body: some View {
-		
-		List(chatArray) { item in
-			ZStack(alignment: .leading) {
-				RoundedRectangle(cornerRadius: 5).foregroundColor(chatColor(role: item.role)).shadow(radius: 10)
-				Text(item.message).textSelection(.enabled).padding(8).foregroundColor(.white)
+		ScrollViewReader { scrollViewProxy in
+			ScrollView {
+				VStack {
+					ForEach(chatArray, id: \.id) { item in
+						ZStack(alignment: .leading) {
+							RoundedRectangle(cornerRadius: 5).foregroundColor(chatColor(role: item.role)).shadow(radius: 10)
+							Text(item.message).textSelection(.enabled).padding(8).foregroundColor(.white)
+						}.padding([.horizontal, .top])
+					}
+				}
+				.onChange(of: chatArray.count) { count in
+					scrollViewProxy.scrollTo(chatArray.last, anchor: .bottom)
+				}
 			}
-		}.padding(.bottom, 60)
+		}
 	}
 }
 
