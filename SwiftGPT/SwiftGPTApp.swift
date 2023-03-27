@@ -14,6 +14,7 @@ struct SwiftGPTApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+						.frame(minWidth: 400, minHeight: 200)
 				}.commands(content: {
 					CommandGroup(replacing: .help) {
 						Button("SwiftGPT Help") {
