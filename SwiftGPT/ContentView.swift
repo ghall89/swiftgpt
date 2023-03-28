@@ -7,21 +7,9 @@
 
 import SwiftUI
 
-func chatColor(role: String) -> Color {
-	switch role {
-		case "user":
-			return Color.gray
-		case "assistant":
-			return Color.blue
-		default:
-			return Color.red
-	}
-	
-}
-
 struct ContentView: View {
 	@State var showDialog: Bool = false
-	@State var apiKey: String = retrieveKey()
+	@State var apiKey: String = retrieveKey(key: "api_key")
 	@State var prompt: String = ""
 	@State var chatArray: Array = [Message]()
 	

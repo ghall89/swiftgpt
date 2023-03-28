@@ -7,8 +7,8 @@
 
 import Foundation
 
-func retrieveKey() -> String {
-	let storedKey: String? = UserDefaults.standard.string(forKey: "api_key")
+func retrieveKey(key: String) -> String {
+	let storedKey: String? = UserDefaults.standard.string(forKey: key)
 	
 	if storedKey != nil {
 		return storedKey!

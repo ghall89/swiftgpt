@@ -6,6 +6,19 @@
 //
 
 import SwiftUI
+import Cocoa
+
+func chatColor(role: String) -> Color {
+	switch role {
+		case "user":
+			return Color.gray
+		case "assistant":
+			return Color.blue
+		default:
+			return Color.red
+	}
+	
+}
 
 struct ChatBubble: View {
 	@State private var isAnimated = false
@@ -19,8 +32,30 @@ struct ChatBubble: View {
 	var body: some View {
 		ZStack(alignment: .leading) {
 			RoundedRectangle(cornerRadius: 5).foregroundColor(chatColor(role: item.role)).shadow(radius: 10)
-			Text(item.message).textSelection(.enabled).padding(8).foregroundColor(.white)
-		}.padding([.horizontal, .top]).id(item.id).scaleEffect(isAnimated ? 1 : 0.5).opacity(isAnimated ? 1 : 0).animation(.easeOut, value: isAnimated).onAppear() {
+			HStack {
+				Text(item.message).padding(8).foregroundColor(.white).contextMenu(menuItems: {
+					Button {
+						let pasteboard = NSPasteboard.general
+						pasteboard.declareTypes([.string], owner: nil)
+						
+						let stringToCopy = "Hello, world!"
+						
+						pasteboard.setString(item.message, forType: .string)
+					} label: {
+						Text("Copy")
+					}
+				})
+				if item.role == "assistant" {
+					Spacer()
+					Button(action: {
+						let sharingPicker = NSSharingServicePicker(items: [item.message])
+						sharingPicker.show(relativeTo: .zero, of: NSApp.keyWindow!.contentView!, preferredEdge: .maxX)
+					}) {
+						Image(systemName: "square.and.arrow.up")
+					}.buttonStyle(PlainButtonStyle()).padding()
+				}
+			}
+		}.padding([.horizontal, .top]).id(item.id).offset(x: isAnimated ? 0 : -30).opacity(isAnimated ? 1 : 0).animation(.easeOut, value: isAnimated).onAppear() {
 			if isLastItem {
 				isAnimated.toggle()
 			}
