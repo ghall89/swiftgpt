@@ -20,6 +20,17 @@ func chatColor(role: String) -> Color {
 	
 }
 
+func shareAction(content: String) {
+	let sharingPicker = NSSharingServicePicker(items: [content])
+	sharingPicker.show(relativeTo: .zero, of: NSApp.keyWindow!.contentView!, preferredEdge: .maxX)
+}
+
+func copyAction(content: String) {
+	let pasteboard = NSPasteboard.general
+	pasteboard.declareTypes([.string], owner: nil)
+	pasteboard.setString(content, forType: .string)
+}
+
 struct ChatBubble: View {
 	@State private var isAnimated = false
 	var item: Message
@@ -35,21 +46,20 @@ struct ChatBubble: View {
 			HStack {
 				Text(item.message).padding(8).foregroundColor(.white).contextMenu(menuItems: {
 					Button {
-						let pasteboard = NSPasteboard.general
-						pasteboard.declareTypes([.string], owner: nil)
-						
-						let stringToCopy = "Hello, world!"
-						
-						pasteboard.setString(item.message, forType: .string)
+						copyAction(content: item.message)
 					} label: {
 						Text("Copy")
+					}
+					Button {
+						shareAction(content: item.message)
+					} label: {
+						Text("Share")
 					}
 				})
 				if item.role == "assistant" {
 					Spacer()
 					Button(action: {
-						let sharingPicker = NSSharingServicePicker(items: [item.message])
-						sharingPicker.show(relativeTo: .zero, of: NSApp.keyWindow!.contentView!, preferredEdge: .maxX)
+						shareAction(content: item.message)
 					}) {
 						Image(systemName: "square.and.arrow.up")
 					}.buttonStyle(PlainButtonStyle()).padding()
