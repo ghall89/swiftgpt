@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D36F7AF229D4F1DE008EBCA5 /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D36F7AF129D4F1DE008EBCA5 /* ChatGPTSwift */; };
 		D37AC75929CF884900A6B585 /* SwiftGPTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC75829CF884900A6B585 /* SwiftGPTApp.swift */; };
 		D37AC75B29CF884900A6B585 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC75A29CF884900A6B585 /* ContentView.swift */; };
 		D37AC75D29CF884A00A6B585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37AC75C29CF884A00A6B585 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D36F7AF229D4F1DE008EBCA5 /* ChatGPTSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +124,9 @@
 			dependencies = (
 			);
 			name = SwiftGPT;
+			packageProductDependencies = (
+				D36F7AF129D4F1DE008EBCA5 /* ChatGPTSwift */,
+			);
 			productName = SwiftGPT;
 			productReference = D37AC75529CF884900A6B585 /* SwiftGPT.app */;
 			productType = "com.apple.product-type.application";
@@ -150,6 +155,9 @@
 				Base,
 			);
 			mainGroup = D37AC74C29CF884900A6B585;
+			packageReferences = (
+				D36F7AF029D4F1DE008EBCA5 /* XCRemoteSwiftPackageReference "ChatGPTSwift" */,
+			);
 			productRefGroup = D37AC75629CF884900A6B585 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -380,6 +388,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D36F7AF029D4F1DE008EBCA5 /* XCRemoteSwiftPackageReference "ChatGPTSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/ChatGPTSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D36F7AF129D4F1DE008EBCA5 /* ChatGPTSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D36F7AF029D4F1DE008EBCA5 /* XCRemoteSwiftPackageReference "ChatGPTSwift" */;
+			productName = ChatGPTSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D37AC74D29CF884900A6B585 /* Project object */;
 }

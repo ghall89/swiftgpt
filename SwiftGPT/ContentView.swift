@@ -6,31 +6,13 @@
 //
 
 import SwiftUI
+import ChatGPTSwift
 
 struct ContentView: View {
 	@State var showDialog: Bool = false
 	@State var apiKey: String = retrieveKey(key: "api_key")
 	@State var prompt: String = ""
 	@State var chatArray: Array = [Message]()
-	
-	func handleButton () {
-		if apiKey != "" {
-			chatArray.append(Message(message: prompt, role: "user"))
-			generateText(prompt: prompt, key: apiKey, chat: chatArray) { result in
-				switch result {
-					case .success(let text):
-						let response = text.trimmingCharacters(in: .whitespacesAndNewlines)
-						chatArray.append(Message(message: response, role: "assistant"))
-						prompt = ""
-					case .failure(let error):
-						print(error.localizedDescription)
-						chatArray.append(Message(message: error.localizedDescription, role: "system"))
-				}
-			}
-		} else {
-			showDialog = true
-		}
-	}
 	
 	var body: some View {
 		ZStack(alignment: .bottom) {
@@ -40,7 +22,14 @@ struct ContentView: View {
 				HStack {
 					TextField("Prompt", text: $prompt).textFieldStyle(.plain).lineLimit(1...5)
 					Button(action: {
-						handleButton()
+						if apiKey != "" {
+							chatArray.append(Message(message: prompt, role: "user"))
+							Task {
+								await handleButton(apiKey: apiKey, chatArray: &chatArray, prompt: &prompt)
+							}
+						} else {
+							showDialog = true
+						}
 					}) {
 						Image(systemName: "paperplane.fill")
 					} .keyboardShortcut(.defaultAction).buttonStyle(PlainButtonStyle()).foregroundColor(.blue).disabled(prompt.isEmpty).padding(.horizontal, 5)
