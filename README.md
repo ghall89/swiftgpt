@@ -34,4 +34,4 @@ Please direct any feedback or questions to me [on Mastodon](https://home.social/
 ## Acknowledgements
 
 - [ChatGPTSwift](https://github.com/alfianlosari/ChatGPTSwift)
-= [SwiftfulLoadingIndicators](https://github.com/SwiftfulThinking/SwiftfulLoadingIndicators)
+- [SwiftfulLoadingIndicators](https://github.com/SwiftfulThinking/SwiftfulLoadingIndicators)
