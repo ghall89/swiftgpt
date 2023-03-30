@@ -30,3 +30,8 @@ As an exercise in native macOS development, build an app using the OpenAI API in
 ## Questions
 
 Please direct any feedback or questions to me [on Mastodon](https://home.social/@ghalldev)!
+
+## Acknowledgements
+
+- [ChatGPTSwift](https://github.com/alfianlosari/ChatGPTSwift)
+= [SwiftfulLoadingIndicators](https://github.com/SwiftfulThinking/SwiftfulLoadingIndicators)

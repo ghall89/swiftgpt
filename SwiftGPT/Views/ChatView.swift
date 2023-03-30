@@ -1,12 +1,7 @@
-//
-//  ChatView.swift
-//  SwiftGPT
-//
-//  Created by Graham Hall on 3/26/23.
-//
-
 import SwiftUI
 import Cocoa
+
+import SwiftfulLoadingIndicators
 
 func chatColor(role: String) -> Color {
 	switch role {
@@ -75,15 +70,26 @@ struct ChatBubble: View {
 
 struct ChatView: View {
 	@Binding var chatArray: Array<Message>
+	@Binding var loading: Bool
 	
 	var body: some View {
 		ScrollViewReader { scrollViewProxy in
 			ScrollView {
 				VStack {
-					ForEach(chatArray, id: \.id) { item in
-						let isLastItem = item.id == chatArray[chatArray.count - 1].id
-						ChatBubble(item: item, isLastItem: isLastItem)
+					if chatArray.isEmpty {
+						VStack(alignment: .center) {
+							Text("Enter a prompt to get started").foregroundColor(.gray).padding(30).fontWeight(.medium).font(.system(size: 20))
+							
+						}
+					} else {
+						ForEach(chatArray, id: \.id) { item in
+							let isLastItem = item.id == chatArray[chatArray.count - 1].id
+							ChatBubble(item: item, isLastItem: isLastItem)
+						}
 					}
+				}
+				if loading {
+					LoadingIndicator(animation: .threeBallsBouncing, color: .gray, size: .small).padding()
 				}
 				Rectangle().frame(height: 60).foregroundColor(.clear)
 			}

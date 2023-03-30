@@ -1,31 +1,30 @@
-//
-//  ContentView.swift
-//  SwiftGPT
-//
-//  Created by Graham Hall on 3/25/23.
-//
-
 import SwiftUI
-import ChatGPTSwift
 
 struct ContentView: View {
 	@State var showDialog: Bool = false
+	@State var loading: Bool = false
 	@State var apiKey: String = retrieveKey(key: "api_key")
 	@State var prompt: String = ""
 	@State var chatArray: Array = [Message]()
+
 	
 	var body: some View {
 		ZStack(alignment: .bottom) {
-			ChatView(chatArray: $chatArray)
+			ChatView(chatArray: $chatArray, loading: $loading)
 			VStack {
 				Divider()
 				HStack {
 					TextField("Prompt", text: $prompt).textFieldStyle(.plain).lineLimit(1...5)
 					Button(action: {
 						if apiKey != "" {
+							loading = true
 							chatArray.append(Message(message: prompt, role: "user"))
+							let input = prompt
+							prompt = ""
 							Task {
-								await handleButton(apiKey: apiKey, chatArray: &chatArray, prompt: &prompt)
+								await handleButton(apiKey: apiKey, chatArray: &chatArray, prompt: input)
+//								playSound()
+								loading = false
 							}
 						} else {
 							showDialog = true
