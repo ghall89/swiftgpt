@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D36F7AF229D4F1DE008EBCA5 /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D36F7AF129D4F1DE008EBCA5 /* ChatGPTSwift */; };
+		D36F7AF429D506C9008EBCA5 /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F7AF329D506C9008EBCA5 /* Controllers.swift */; };
+		D36F7AF729D50AF8008EBCA5 /* DataModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D36F7AF529D50AF7008EBCA5 /* DataModels.xcdatamodeld */; };
+		D36F7AFA29D52AF7008EBCA5 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F7AF929D52AF7008EBCA5 /* PlaySound.swift */; };
+		D36F7AFC29D52C0E008EBCA5 /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D36F7AFB29D52C0E008EBCA5 /* success.mp3 */; };
+		D36F7B0029D53785008EBCA5 /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = D36F7AFF29D53785008EBCA5 /* SwiftfulLoadingIndicators */; };
 		D37AC75929CF884900A6B585 /* SwiftGPTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC75829CF884900A6B585 /* SwiftGPTApp.swift */; };
 		D37AC75B29CF884900A6B585 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC75A29CF884900A6B585 /* ContentView.swift */; };
 		D37AC75D29CF884A00A6B585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37AC75C29CF884A00A6B585 /* Assets.xcassets */; };
@@ -14,12 +20,15 @@
 		D37AC76829CF886B00A6B585 /* OpenAIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC76729CF886B00A6B585 /* OpenAIHandler.swift */; };
 		D37AC76C29CFA99E00A6B585 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC76B29CFA99E00A6B585 /* Models.swift */; };
 		D38C23E629D078E800681461 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38C23E529D078E300681461 /* DialogView.swift */; };
-		D38C23EB29D07C5D00681461 /* PreferenceHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38C23EA29D07C5D00681461 /* PreferenceHandlers.swift */; };
 		D393605929D0A282002887BA /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D393605829D0A282002887BA /* ChatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D34BC7ED29D0E50D00966ED0 /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
+		D36F7AF329D506C9008EBCA5 /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
+		D36F7AF629D50AF8008EBCA5 /* DataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModels.xcdatamodel; sourceTree = "<group>"; };
+		D36F7AF929D52AF7008EBCA5 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
+		D36F7AFB29D52C0E008EBCA5 /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
 		D37AC75529CF884900A6B585 /* SwiftGPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D37AC75829CF884900A6B585 /* SwiftGPTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGPTApp.swift; sourceTree = "<group>"; };
 		D37AC75A29CF884900A6B585 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -31,7 +40,6 @@
 		D37AC76A29CF902700A6B585 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		D37AC76B29CFA99E00A6B585 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		D38C23E529D078E300681461 /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
-		D38C23EA29D07C5D00681461 /* PreferenceHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceHandlers.swift; sourceTree = "<group>"; };
 		D393605829D0A282002887BA /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -40,12 +48,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D36F7AF229D4F1DE008EBCA5 /* ChatGPTSwift in Frameworks */,
+				D36F7B0029D53785008EBCA5 /* SwiftfulLoadingIndicators in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D36F7AF829D520B8008EBCA5 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				D36F7AF329D506C9008EBCA5 /* Controllers.swift */,
+				D36F7AF529D50AF7008EBCA5 /* DataModels.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		D36F7AFD29D52C2A008EBCA5 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				D36F7AFB29D52C0E008EBCA5 /* success.mp3 */,
+				D36F7AF929D52AF7008EBCA5 /* PlaySound.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		D37AC74C29CF884900A6B585 = {
 			isa = PBXGroup;
 			children = (
@@ -68,10 +96,13 @@
 		D37AC75729CF884900A6B585 /* SwiftGPT */ = {
 			isa = PBXGroup;
 			children = (
-				D38C23EC29D07CB200681461 /* Chat */,
-				D38C23E929D07C0400681461 /* UserPrefs */,
+				D36F7AFD29D52C2A008EBCA5 /* Audio */,
+				D36F7AF829D520B8008EBCA5 /* DataModel */,
+				D38C23E929D07C0400681461 /* Views */,
 				D37AC75829CF884900A6B585 /* SwiftGPTApp.swift */,
 				D37AC75A29CF884900A6B585 /* ContentView.swift */,
+				D37AC76B29CFA99E00A6B585 /* Models.swift */,
+				D37AC76729CF886B00A6B585 /* OpenAIHandler.swift */,
 				D37AC75C29CF884A00A6B585 /* Assets.xcassets */,
 				D37AC76129CF884A00A6B585 /* SwiftGPT.entitlements */,
 				D37AC75E29CF884A00A6B585 /* Preview Content */,
@@ -87,23 +118,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		D38C23E929D07C0400681461 /* UserPrefs */ = {
+		D38C23E929D07C0400681461 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D38C23E529D078E300681461 /* DialogView.swift */,
-				D38C23EA29D07C5D00681461 /* PreferenceHandlers.swift */,
-			);
-			path = UserPrefs;
-			sourceTree = "<group>";
-		};
-		D38C23EC29D07CB200681461 /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				D37AC76729CF886B00A6B585 /* OpenAIHandler.swift */,
-				D37AC76B29CFA99E00A6B585 /* Models.swift */,
 				D393605829D0A282002887BA /* ChatView.swift */,
+				D38C23E529D078E300681461 /* DialogView.swift */,
 			);
-			path = Chat;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +143,10 @@
 			dependencies = (
 			);
 			name = SwiftGPT;
+			packageProductDependencies = (
+				D36F7AF129D4F1DE008EBCA5 /* ChatGPTSwift */,
+				D36F7AFF29D53785008EBCA5 /* SwiftfulLoadingIndicators */,
+			);
 			productName = SwiftGPT;
 			productReference = D37AC75529CF884900A6B585 /* SwiftGPT.app */;
 			productType = "com.apple.product-type.application";
@@ -150,6 +175,10 @@
 				Base,
 			);
 			mainGroup = D37AC74C29CF884900A6B585;
+			packageReferences = (
+				D36F7AF029D4F1DE008EBCA5 /* XCRemoteSwiftPackageReference "ChatGPTSwift" */,
+				D36F7AFE29D53785008EBCA5 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */,
+			);
 			productRefGroup = D37AC75629CF884900A6B585 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -166,6 +195,7 @@
 			files = (
 				D37AC76029CF884A00A6B585 /* Preview Assets.xcassets in Resources */,
 				D37AC75D29CF884A00A6B585 /* Assets.xcassets in Resources */,
+				D36F7AFC29D52C0E008EBCA5 /* success.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +207,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D37AC75B29CF884900A6B585 /* ContentView.swift in Sources */,
-				D38C23EB29D07C5D00681461 /* PreferenceHandlers.swift in Sources */,
+				D36F7AFA29D52AF7008EBCA5 /* PlaySound.swift in Sources */,
+				D36F7AF729D50AF8008EBCA5 /* DataModels.xcdatamodeld in Sources */,
+				D36F7AF429D506C9008EBCA5 /* Controllers.swift in Sources */,
 				D37AC76829CF886B00A6B585 /* OpenAIHandler.swift in Sources */,
 				D38C23E629D078E800681461 /* DialogView.swift in Sources */,
 				D393605929D0A282002887BA /* ChatView.swift in Sources */,
@@ -316,12 +348,13 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SwiftGPT;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = ghalldev.SwiftGPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -343,12 +376,13 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SwiftGPT;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = ghalldev.SwiftGPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -378,6 +412,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D36F7AF029D4F1DE008EBCA5 /* XCRemoteSwiftPackageReference "ChatGPTSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/ChatGPTSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		D36F7AFE29D53785008EBCA5 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulLoadingIndicators.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D36F7AF129D4F1DE008EBCA5 /* ChatGPTSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D36F7AF029D4F1DE008EBCA5 /* XCRemoteSwiftPackageReference "ChatGPTSwift" */;
+			productName = ChatGPTSwift;
+		};
+		D36F7AFF29D53785008EBCA5 /* SwiftfulLoadingIndicators */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D36F7AFE29D53785008EBCA5 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */;
+			productName = SwiftfulLoadingIndicators;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		D36F7AF529D50AF7008EBCA5 /* DataModels.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D36F7AF629D50AF8008EBCA5 /* DataModels.xcdatamodel */,
+			);
+			currentVersion = D36F7AF629D50AF8008EBCA5 /* DataModels.xcdatamodel */;
+			path = DataModels.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D37AC74D29CF884900A6B585 /* Project object */;
 }
