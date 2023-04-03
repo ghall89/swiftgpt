@@ -1,23 +1,15 @@
 #  SwiftGPT
 
+![](https://img.shields.io/github/v/release/ghall89/swiftgpt?include_prereleases&style=flat-square)
+![](https://img.shields.io/github/license/ghall89/swiftgpt?style=flat-square)
+![](https://img.shields.io/github/languages/top/ghall89/swiftgpt?style=flat-square)
+![](https://img.shields.io/github/issues/ghall89/swiftgpt?style=flat-square)
+
 ## About
 
-![](./screenshot.png)
+SwiftGPT is an open-source front end for the OpenAI language model written in Swift. The goal of the project is to replicate the experience of [ChatGPT](https://chat.openai.com) as closely as possible, but as a native macOS application.
 
-### Story
-
-As an exercise in native macOS development, build an app using the OpenAI API in Swift and SwiftUI. This app should:
-
-1. Allow an end user to enter their OpenAI API key ✅
-2. Take in a text prompt ✅
-3. Query the OpenAI API ✅
-4. Display the result in a list view alongside the user's prompt ✅
-5. Retain the user's API key after quitting ✅
-
-### Stretch Features
-
-1. Store chat history between sessions
-2. Allow user to select which OpenAI engine they'd like to use (currently defaults to "curie")
+![](./screenshot.png)  
 
 ## Installation & Usage
 
@@ -31,7 +23,32 @@ As an exercise in native macOS development, build an app using the OpenAI API in
 
 Please direct any feedback or questions to me [on Mastodon](https://home.social/@ghalldev)!
 
-## Acknowledgements
+## Packages
 
 - [ChatGPTSwift](https://github.com/alfianlosari/ChatGPTSwift)
 - [SwiftfulLoadingIndicators](https://github.com/SwiftfulThinking/SwiftfulLoadingIndicators)
+
+## License
+
+MIT License
+
+Copyright (c) 2023 Graham Hall
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
