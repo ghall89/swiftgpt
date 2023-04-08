@@ -28,7 +28,7 @@ func copyAction(content: String) {
 
 struct ChatBubble: View {
 	@State private var isAnimated = false
-	var item: Message
+	var item: MessageWithID
 	var isLastItem: Bool
 	
 	var animate: Animation {
@@ -69,7 +69,7 @@ struct ChatBubble: View {
 }
 
 struct ChatView: View {
-	@Binding var chatArray: Array<Message>
+	@Binding var chatArray: Array<MessageWithID>
 	@Binding var loading: Bool
 	
 	var body: some View {

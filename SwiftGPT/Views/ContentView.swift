@@ -5,8 +5,15 @@ struct ContentView: View {
 	@State var loading: Bool = false
 	@State var apiKey: String = retrieveKey(key: "api_key")
 	@State var prompt: String = ""
-	@State var chatArray: Array = [Message]()
-
+	@State var chatArray: Array = [MessageWithID]()
+	
+	func onStart() {
+		let savedUserData = readJSON()
+		for message in savedUserData {
+			print(message)
+			chatArray.append(MessageWithID(id: message.id, message: message.message, role: message.role))
+		}
+	}
 	
 	var body: some View {
 		ZStack(alignment: .bottom) {
@@ -18,12 +25,12 @@ struct ContentView: View {
 					Button(action: {
 						if apiKey != "" {
 							loading = true
-							chatArray.append(Message(message: prompt, role: "user"))
+							chatArray.append(MessageWithID(id: UUID(), message: prompt, role: "user"))
 							let input = prompt
 							prompt = ""
 							Task {
 								await handleButton(apiKey: apiKey, chatArray: &chatArray, prompt: input)
-//								playSound()
+								playSound()
 								loading = false
 							}
 						} else {
@@ -44,7 +51,7 @@ struct ContentView: View {
 					DialogView(showDialog: $showDialog, apiKey: $apiKey)
 				}
 			}
-		}
+		}.onAppear(perform: onStart)
 	}
 }
 
