@@ -60,11 +60,13 @@ struct ChatBubble: View {
 					}.buttonStyle(PlainButtonStyle()).padding()
 				}
 			}
-		}.padding([.horizontal, .top]).id(item.id).offset(x: isAnimated ? 0 : -30).opacity(isAnimated ? 1 : 0).animation(.easeOut, value: isAnimated).onAppear() {
-			if isLastItem {
-				isAnimated.toggle()
-			}
 		}
+		.padding([.horizontal, .top]).id(item.id)
+//		.offset(x: isAnimated ? 0 : -30).opacity(isAnimated ? 1 : 0).animation(.easeOut, value: isAnimated).onAppear() {
+//			if isLastItem {
+//				isAnimated.toggle()
+//			}
+//		}
 	}
 }
 
