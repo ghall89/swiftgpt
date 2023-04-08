@@ -21,6 +21,6 @@ func handleButton (apiKey: String, chatArray: inout Array<Message>, prompt: Stri
 
 	let response = await handleOpenAI(apiKey: apiKey, prompt: prompt)
 	chatArray.append(response)
-//	storeHistory(array: chatArray)
+	storeJSON(chatHistory: chatArray)
 	
 }
