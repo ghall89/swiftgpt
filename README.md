@@ -14,7 +14,7 @@ SwiftGPT is an open-source front end for the OpenAI language model written in Sw
 ## Installation & Usage
 
 1. Download the latest build [here](https://github.com/ghall89/swiftgpt/releases).
-2. The first time you run the app, right click on the app icon and select open. Follow the instrcutions on the dialog.
+2. The first time you run the app, right click on the app icon and select open. Follow the instructions in the dialog.
 3. If you don't already have an API key for OpenAI, create a developer account and generate a key at https://platform.openai.com.
 4. Click the key button on the top right of the window, enter your API key, and click “Ok"
 5. Enter your prompt, and either click “Send” or press the return key
