@@ -2,11 +2,8 @@ import Foundation
 import ChatGPTSwift
 
 func storeJSON(chatHistory: Array<MessageWithID>) {
-	print("Storing JSON...")
 	let encoder = JSONEncoder()
 	let jsonData = try! encoder.encode(chatHistory)
-	
-	print(jsonData)
 	
 	let fileManager = FileManager.default
 	let documentsDirectory = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
@@ -17,7 +14,7 @@ func storeJSON(chatHistory: Array<MessageWithID>) {
 		fileManager.createFile(atPath: fileURL.path, contents: nil, attributes: nil)
 		try jsonData.write(to: fileURL, options: .atomic)
 	} catch {
-		print(error)
+		print(error.localizedDescription)
 	}
 }
 
@@ -30,15 +27,13 @@ func readJSON() -> Array<MessageWithID> {
 			 let jsonData = try Data(contentsOf: fileURL)
 			 let decoder = JSONDecoder()
 			 
-//			 // create array of messages without id and write to ChatGPTSwift history
-//			 let messagesWithoutId = try decoder.decode([Message].self, from: jsonData)
-//			 restoreHistory(history: messagesWithoutId)
+			 restoreHistory(data: jsonData)
 			 
 			 // create array of messages with id to display in list view
 			 let messagesWithId = try decoder.decode([MessageWithID].self, from: jsonData)
 			 return messagesWithId
 		 } catch {
-			 print(error)
+			 print(error.localizedDescription)
 		 }
 	 }
 	

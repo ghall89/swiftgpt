@@ -2,6 +2,6 @@ import Foundation
 
 struct MessageWithID: Hashable, Codable {
 	let id: UUID
-	let message: String
+	let content: String
 	let role: String
 }

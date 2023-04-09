@@ -10,8 +10,7 @@ struct ContentView: View {
 	func onStart() {
 		let savedUserData = readJSON()
 		for message in savedUserData {
-			print(message)
-			chatArray.append(MessageWithID(id: message.id, message: message.message, role: message.role))
+			chatArray.append(MessageWithID(id: message.id, content: message.content, role: message.role))
 		}
 	}
 	
@@ -25,7 +24,7 @@ struct ContentView: View {
 					Button(action: {
 						if apiKey != "" {
 							loading = true
-							chatArray.append(MessageWithID(id: UUID(), message: prompt, role: "user"))
+							chatArray.append(MessageWithID(id: UUID(), content: prompt, role: "user"))
 							let input = prompt
 							prompt = ""
 							Task {

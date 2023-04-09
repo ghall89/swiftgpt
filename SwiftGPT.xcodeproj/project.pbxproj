@@ -15,7 +15,7 @@
 		D37AC75B29CF884900A6B585 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC75A29CF884900A6B585 /* ContentView.swift */; };
 		D37AC75D29CF884A00A6B585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37AC75C29CF884A00A6B585 /* Assets.xcassets */; };
 		D37AC76029CF884A00A6B585 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D37AC75F29CF884A00A6B585 /* Preview Assets.xcassets */; };
-		D37AC76829CF886B00A6B585 /* OpenAIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC76729CF886B00A6B585 /* OpenAIController.swift */; };
+		D37AC76829CF886B00A6B585 /* OpenAIControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC76729CF886B00A6B585 /* OpenAIControllers.swift */; };
 		D37AC76C29CFA99E00A6B585 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37AC76B29CFA99E00A6B585 /* Models.swift */; };
 		D38C23E629D078E800681461 /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38C23E529D078E300681461 /* DialogView.swift */; };
 		D393605929D0A282002887BA /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D393605829D0A282002887BA /* ChatView.swift */; };
@@ -32,7 +32,7 @@
 		D37AC75C29CF884A00A6B585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D37AC75F29CF884A00A6B585 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D37AC76129CF884A00A6B585 /* SwiftGPT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftGPT.entitlements; sourceTree = "<group>"; };
-		D37AC76729CF886B00A6B585 /* OpenAIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIController.swift; sourceTree = "<group>"; };
+		D37AC76729CF886B00A6B585 /* OpenAIControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIControllers.swift; sourceTree = "<group>"; };
 		D37AC76929CF8D4300A6B585 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D37AC76A29CF902700A6B585 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		D37AC76B29CFA99E00A6B585 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
@@ -54,11 +54,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D36F7AFD29D52C2A008EBCA5 /* Audio */ = {
+		D310EC7329E334B7007A2559 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				D36F7AFB29D52C0E008EBCA5 /* success.mp3 */,
 				D36F7AF929D52AF7008EBCA5 /* PlaySound.swift */,
+				D36F7AFB29D52C0E008EBCA5 /* success.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -85,12 +85,12 @@
 		D37AC75729CF884900A6B585 /* SwiftGPT */ = {
 			isa = PBXGroup;
 			children = (
-				D36F7AFD29D52C2A008EBCA5 /* Audio */,
+				D310EC7329E334B7007A2559 /* Audio */,
 				D38C23E929D07C0400681461 /* Views */,
 				D37AC75829CF884900A6B585 /* SwiftGPTApp.swift */,
 				D37AC76B29CFA99E00A6B585 /* Models.swift */,
 				D3E3947D29E1D34F006E7FF5 /* JSONControllers.swift */,
-				D37AC76729CF886B00A6B585 /* OpenAIController.swift */,
+				D37AC76729CF886B00A6B585 /* OpenAIControllers.swift */,
 				D37AC75C29CF884A00A6B585 /* Assets.xcassets */,
 				D37AC76129CF884A00A6B585 /* SwiftGPT.entitlements */,
 				D37AC75E29CF884A00A6B585 /* Preview Content */,
@@ -197,7 +197,7 @@
 			files = (
 				D37AC75B29CF884900A6B585 /* ContentView.swift in Sources */,
 				D36F7AFA29D52AF7008EBCA5 /* PlaySound.swift in Sources */,
-				D37AC76829CF886B00A6B585 /* OpenAIController.swift in Sources */,
+				D37AC76829CF886B00A6B585 /* OpenAIControllers.swift in Sources */,
 				D38C23E629D078E800681461 /* DialogView.swift in Sources */,
 				D393605929D0A282002887BA /* ChatView.swift in Sources */,
 				D37AC75929CF884900A6B585 /* SwiftGPTApp.swift in Sources */,
@@ -345,7 +345,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.3;
+				MARKETING_VERSION = 0.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ghalldev.SwiftGPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -374,7 +374,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.0.3;
+				MARKETING_VERSION = 0.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ghalldev.SwiftGPT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

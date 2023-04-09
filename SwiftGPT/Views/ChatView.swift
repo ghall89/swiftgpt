@@ -39,14 +39,14 @@ struct ChatBubble: View {
 		ZStack(alignment: .leading) {
 			RoundedRectangle(cornerRadius: 5).foregroundColor(chatColor(role: item.role)).shadow(radius: 10)
 			HStack {
-				Text(item.message).padding(8).foregroundColor(.white).contextMenu(menuItems: {
+				Text(item.content).padding(8).foregroundColor(.white).contextMenu(menuItems: {
 					Button {
-						copyAction(content: item.message)
+						copyAction(content: item.content)
 					} label: {
 						Text("Copy")
 					}
 					Button {
-						shareAction(content: item.message)
+						shareAction(content: item.content)
 					} label: {
 						Text("Share")
 					}
@@ -54,7 +54,7 @@ struct ChatBubble: View {
 				if item.role == "assistant" {
 					Spacer()
 					Button(action: {
-						shareAction(content: item.message)
+						shareAction(content: item.content)
 					}) {
 						Image(systemName: "square.and.arrow.up")
 					}.buttonStyle(PlainButtonStyle()).padding()
