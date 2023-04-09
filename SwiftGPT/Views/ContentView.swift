@@ -5,25 +5,31 @@ struct ContentView: View {
 	@State var loading: Bool = false
 	@State var apiKey: String = retrieveKey(key: "api_key")
 	@State var prompt: String = ""
-	@State var chatArray: Array = [Message]()
-
+	@State var chatArray: Array = [MessageWithID]()
+	
+	func onStart() {
+		let savedUserData = readJSON()
+		for message in savedUserData {
+			chatArray.append(MessageWithID(id: message.id, content: message.content, role: message.role))
+		}
+	}
 	
 	var body: some View {
-		ZStack(alignment: .bottom) {
+		VStack(spacing: 0) {
 			ChatView(chatArray: $chatArray, loading: $loading)
+			Divider()
 			VStack {
-				Divider()
 				HStack {
 					TextField("Prompt", text: $prompt).textFieldStyle(.plain).lineLimit(1...5)
 					Button(action: {
 						if apiKey != "" {
 							loading = true
-							chatArray.append(Message(message: prompt, role: "user"))
+							chatArray.append(MessageWithID(id: UUID(), content: prompt, role: "user"))
 							let input = prompt
 							prompt = ""
 							Task {
 								await handleButton(apiKey: apiKey, chatArray: &chatArray, prompt: input)
-//								playSound()
+								playSound()
 								loading = false
 							}
 						} else {
@@ -32,8 +38,8 @@ struct ContentView: View {
 					}) {
 						Image(systemName: "paperplane.fill")
 					} .keyboardShortcut(.defaultAction).buttonStyle(PlainButtonStyle()).foregroundColor(.blue).disabled(prompt.isEmpty).padding(.horizontal, 5)
-				}.padding().offset(y: -5)
-			}.background(.thickMaterial, in: Rectangle())
+				}.padding()
+			}.padding(0)
 		}.toolbar {
 			ToolbarItemGroup(placement: .primaryAction) {
 				Button(action: {
@@ -44,7 +50,7 @@ struct ContentView: View {
 					DialogView(showDialog: $showDialog, apiKey: $apiKey)
 				}
 			}
-		}
+		}.onAppear(perform: onStart)
 	}
 }
 

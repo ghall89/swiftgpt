@@ -28,7 +28,7 @@ func copyAction(content: String) {
 
 struct ChatBubble: View {
 	@State private var isAnimated = false
-	var item: Message
+	var item: MessageWithID
 	var isLastItem: Bool
 	
 	var animate: Animation {
@@ -39,14 +39,14 @@ struct ChatBubble: View {
 		ZStack(alignment: .leading) {
 			RoundedRectangle(cornerRadius: 5).foregroundColor(chatColor(role: item.role)).shadow(radius: 10)
 			HStack {
-				Text(item.message).padding(8).foregroundColor(.white).contextMenu(menuItems: {
+				Text(item.content).padding(8).foregroundColor(.white).contextMenu(menuItems: {
 					Button {
-						copyAction(content: item.message)
+						copyAction(content: item.content)
 					} label: {
 						Text("Copy")
 					}
 					Button {
-						shareAction(content: item.message)
+						shareAction(content: item.content)
 					} label: {
 						Text("Share")
 					}
@@ -54,22 +54,24 @@ struct ChatBubble: View {
 				if item.role == "assistant" {
 					Spacer()
 					Button(action: {
-						shareAction(content: item.message)
+						shareAction(content: item.content)
 					}) {
 						Image(systemName: "square.and.arrow.up")
 					}.buttonStyle(PlainButtonStyle()).padding()
 				}
 			}
-		}.padding([.horizontal, .top]).id(item.id).offset(x: isAnimated ? 0 : -30).opacity(isAnimated ? 1 : 0).animation(.easeOut, value: isAnimated).onAppear() {
-			if isLastItem {
-				isAnimated.toggle()
-			}
 		}
+		.padding([.horizontal, .top]).id(item.id)
+//		.offset(x: isAnimated ? 0 : -30).opacity(isAnimated ? 1 : 0).animation(.easeOut, value: isAnimated).onAppear() {
+//			if isLastItem {
+//				isAnimated.toggle()
+//			}
+//		}
 	}
 }
 
 struct ChatView: View {
-	@Binding var chatArray: Array<Message>
+	@Binding var chatArray: Array<MessageWithID>
 	@Binding var loading: Bool
 	
 	var body: some View {

@@ -1,7 +1,7 @@
 import Foundation
 
-struct Message: Hashable, Encodable {
-	let id = UUID()
-	let message: String
+struct MessageWithID: Hashable, Codable {
+	let id: UUID
+	let content: String
 	let role: String
 }
