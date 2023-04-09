@@ -16,10 +16,10 @@ struct ContentView: View {
 	}
 	
 	var body: some View {
-		ZStack(alignment: .bottom) {
+		VStack(spacing: 0) {
 			ChatView(chatArray: $chatArray, loading: $loading)
+			Divider()
 			VStack {
-				Divider()
 				HStack {
 					TextField("Prompt", text: $prompt).textFieldStyle(.plain).lineLimit(1...5)
 					Button(action: {
@@ -39,8 +39,8 @@ struct ContentView: View {
 					}) {
 						Image(systemName: "paperplane.fill")
 					} .keyboardShortcut(.defaultAction).buttonStyle(PlainButtonStyle()).foregroundColor(.blue).disabled(prompt.isEmpty).padding(.horizontal, 5)
-				}.padding().offset(y: -5)
-			}.background(.thickMaterial, in: Rectangle())
+				}.padding()
+			}.padding(0)
 		}.toolbar {
 			ToolbarItemGroup(placement: .primaryAction) {
 				Button(action: {
